@@ -10,11 +10,17 @@ namespace _1._1_vaxelpengar
     {
         static void Main(string[] args)
         {
-            Console.Title = "Växelpengar - nivå C";
-            Console.Clear();
+            ConsoleKeyInfo escp;
             string prompt = "test";
-            double temp = Program.ReadPositiveDouble(prompt);
-            Console.WriteLine(temp);
+            do
+            {
+                Console.Title = "Växelpengar - nivå C";
+                Console.Clear();
+                double temp = Program.ReadPositiveDouble(prompt);
+                Console.WriteLine(temp);
+                Console.WriteLine(Strings.Continue_Prompt);
+                escp = Console.ReadKey();
+            } while (escp.Key != ConsoleKey.Escape);
         }
 
         private static double ReadPositiveDouble(string prompt)
