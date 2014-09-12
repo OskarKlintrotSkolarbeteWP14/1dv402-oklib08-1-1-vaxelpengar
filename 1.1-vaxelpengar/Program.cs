@@ -32,7 +32,7 @@ namespace _1._1_vaxelpengar
                 uint cash = ReadUint(Strings.Cash_Prompt.PadRight(20) + ": ", Convert.ToUInt32(subtotal));
 
                 //Rounding off the price
-                uint total = (uint)Math.Round(subtotal);
+                uint total = (uint)Math.Round(subtotal + 0.001);
                 double roundingOffAmount = total - subtotal;
 
                 //View receipt
