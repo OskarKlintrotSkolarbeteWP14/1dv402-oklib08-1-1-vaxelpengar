@@ -13,21 +13,61 @@ namespace _1._1_vaxelpengar
         }
         static void Main(string[] args)
         {
+            //Variabler
+            uint[] denominations = new uint[7] { 500, 100, 50, 20, 10, 5, 1 };
+            uint change = 777;
+
+            //Consol window
             ConsoleKeyInfo escp;
             Console.Title = "Växelpengar - nivå C";
+            
             do
             {
                 Console.Clear();
+
+                //Sum to get paid for
                 double sum = ReadPositiveDouble(Strings.Sum_Prompt.PadRight(20) + ": ");
-                Console.WriteLine(sum);
-                //uint temp2 = Convert.ToUInt32(sum);
-                //ReadUint(Strings.Cash_Prompt.PadRight(20) + ": ", Convert.ToUInt32(sum));
-                uint temp2 = ReadUint(Strings.Cash_Prompt.PadRight(20) + ": ", Convert.ToUInt32(sum));
-                Console.WriteLine(temp2);
+
+                //Cash from customer
+                uint cash = ReadUint(Strings.Cash_Prompt.PadRight(20) + ": ", Convert.ToUInt32(sum));
+
+                //Round and change
+                uint total = (uint)Math.Round(sum);
+                double roundingOffAmount = total - sum;
+
+                //Rounding off the price
+                uint mek = cash - total;
+                uint[] changeBack = SplitIntoDenominations(mek, denominations);
+
+                //Change back to customer
+                int count = 0;
+                foreach (int element in changeBack)
+                {
+                    if (element > 0 && denominations[count] >= 20)
+                    {
+                        Console.WriteLine("{0}-lappar: {1}", denominations[count], element);
+                    }
+                    if (element > 0 && denominations[count] < 20)
+                    {
+                        Console.WriteLine("{0}-kronor: {1}", denominations[count], element);
+                    }
+                    count++;                    
+                }
+
+                Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(Strings.Continue_Prompt);
+                Console.ResetColor();
                 escp = Console.ReadKey();
             } while (escp.Key != ConsoleKey.Escape);
         }
+
+
+
+
+
+
+
+
 
         private static double ReadPositiveDouble(string prompt)
         {
@@ -82,10 +122,19 @@ namespace _1._1_vaxelpengar
             }
             return cash;
         }
-        //private static uint SplitIntoDenominations(uint change, uint[] denominations)
-        //{
-
-        //}
+        private static uint[] SplitIntoDenominations(uint change, uint[] denominations)
+        {
+            uint[] leftOver = new uint[7];
+            uint[] SplitIntoDenominations = new uint[7];
+            Console.WriteLine();
+            for (int i = 0; i < denominations.Length; i++)
+            {
+                leftOver[i] = change % denominations[i];
+                SplitIntoDenominations[i] = change / denominations[i];
+                change = leftOver[i];
+            }
+            return SplitIntoDenominations;
+        }
         //private static void ViewMessage(string message, bool isError = false) 
         //{
             
