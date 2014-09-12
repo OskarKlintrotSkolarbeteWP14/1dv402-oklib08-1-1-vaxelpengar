@@ -15,7 +15,7 @@ namespace _1._1_vaxelpengar
         {
             //Variabler
             uint[] denominations = new uint[7] { 500, 100, 50, 20, 10, 5, 1 };
-            uint change = 777;
+            //uint change = 777;
 
             //Consol window
             ConsoleKeyInfo escp;
@@ -26,49 +26,27 @@ namespace _1._1_vaxelpengar
                 Console.Clear();
 
                 //Sum to get paid for
-                double sum = ReadPositiveDouble(Strings.Sum_Prompt.PadRight(20) + ": ");
+                double subtotal = ReadPositiveDouble(Strings.Sum_Prompt.PadRight(20) + ": ");
 
                 //Cash from customer
-                uint cash = ReadUint(Strings.Cash_Prompt.PadRight(20) + ": ", Convert.ToUInt32(sum));
-
-                //Round and change
-                uint total = (uint)Math.Round(sum);
-                double roundingOffAmount = total - sum;
+                uint cash = ReadUint(Strings.Cash_Prompt.PadRight(20) + ": ", Convert.ToUInt32(subtotal));
 
                 //Rounding off the price
-                uint mek = cash - total;
-                uint[] changeBack = SplitIntoDenominations(mek, denominations);
+                uint total = (uint)Math.Round(subtotal);
+                double roundingOffAmount = total - subtotal;
 
-                //Change back to customer
-                int count = 0;
-                foreach (int element in changeBack)
-                {
-                    if (element > 0 && denominations[count] >= 20)
-                    {
-                        Console.WriteLine("{0}-lappar: {1}", denominations[count], element);
-                    }
-                    if (element > 0 && denominations[count] < 20)
-                    {
-                        Console.WriteLine("{0}-kronor: {1}", denominations[count], element);
-                    }
-                    count++;                    
-                }
+                //View receipt
+                uint change = cash - total;
+                uint[] notes = SplitIntoDenominations(change, denominations);
+                ViewReceipt(subtotal, roundingOffAmount, total, cash, change, notes, denominations);
 
+                //Again?
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine(Strings.Continue_Prompt);
                 Console.ResetColor();
                 escp = Console.ReadKey();
             } while (escp.Key != ConsoleKey.Escape);
         }
-
-
-
-
-
-
-
-
-
         private static double ReadPositiveDouble(string prompt)
         {
             double amountToBePaid;
@@ -139,10 +117,32 @@ namespace _1._1_vaxelpengar
         //{
             
         //}
-        //private static void ViewReceipt(double subtotal, double roundningOffAmount, uint total, uint cash, uint change, uint[] notes, uint[] denominations) 
-        //{
-
-        //}
+        private static void ViewReceipt(double subtotal, double roundningOffAmount, uint total, uint cash, uint change, uint[] notes, uint[] denominations)
+        {
+            Console.WriteLine("KVITTO");
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine("Totalt".PadRight(15) + ":" + "{0, 15:C}", subtotal);
+            Console.WriteLine("Öresutjämning".PadRight(15) + ":" + "{0, 15:C}", roundningOffAmount);
+            Console.WriteLine("Att betala".PadRight(15) + ":" + "{0, 15:C}", total);
+            Console.WriteLine("Kontant".PadRight(15) + ":" + "{0, 15:C}", cash);
+            Console.WriteLine("Tillbaka".PadRight(15) + ":" + "{0, 15:C}", change);
+            Console.WriteLine("-------------------------------");
+            Console.WriteLine();
+            //Change back to customer
+            int count = 0;
+            foreach (int element in notes)
+            {
+                if (element > 0 && denominations[count] >= 20)
+                {
+                    Console.WriteLine("{0}-lappar: {1}", denominations[count], element);
+                }
+                if (element > 0 && denominations[count] < 20)
+                {
+                    Console.WriteLine("{0}-kronor: {1}", denominations[count], element);
+                }
+                count++;
+            }
+        }
 
     }
 }
