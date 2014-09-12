@@ -121,7 +121,7 @@
     <value>Ange erhållet belopp</value>
   </data>
   <data name="Continue_Prompt" xml:space="preserve">
-    <value>Tryck tangent för ny beräkning - Esc avslutar.</value>
+    <value>Tryck valfri tangent för ny beräkning - Esc avslutar.</value>
   </data>
   <data name="Sum_Prompt" xml:space="preserve">
     <value>Ange totalsumma</value>

@@ -70,7 +70,7 @@ namespace _1._1_vaxelpengar {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tryck tangent för ny beräkning - Esc avslutar..
+        ///   Looks up a localized string similar to Tryck valfri tangent för ny beräkning - Esc avslutar..
         /// </summary>
         internal static string Continue_Prompt {
             get {
