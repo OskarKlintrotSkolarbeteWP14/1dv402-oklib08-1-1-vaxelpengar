@@ -11,12 +11,11 @@ namespace _1._1_vaxelpengar
         static void Main(string[] args)
         {
             ConsoleKeyInfo escp;
-            string prompt = "test";
+            Console.Title = "Växelpengar - nivå C";
             do
             {
-                Console.Title = "Växelpengar - nivå C";
                 Console.Clear();
-                double temp = Program.ReadPositiveDouble(prompt);
+                double temp = ReadPositiveDouble(Strings.Sum_Prompt.PadRight(20) + ": ");
                 Console.WriteLine(temp);
                 Console.WriteLine(Strings.Continue_Prompt);
                 escp = Console.ReadKey();
@@ -30,7 +29,7 @@ namespace _1._1_vaxelpengar
             {
                 try
                 {
-                    Console.Write(Strings.Sum_Prompt.PadRight(20) + ": ");
+                    Console.Write(prompt);
                     amountToBePaid = double.Parse(Console.ReadLine());
                     if (amountToBePaid < 0.5)
                         throw new OverflowException();
@@ -38,7 +37,10 @@ namespace _1._1_vaxelpengar
                 }
                 catch
                 {
-                    Console.WriteLine("FEL");
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Felaktig inmatning, försök igen!");
+                    Console.ResetColor();
                 }
             }
             return amountToBePaid;
