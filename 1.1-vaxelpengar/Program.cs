@@ -135,11 +135,11 @@ namespace _1._1_vaxelpengar
             {
                 if (element > 0 && denominations[count] >= 20)
                 {
-                    Console.WriteLine("{0}-lappar: {1}", denominations[count], element);
+                    Console.WriteLine(Strings.Paper_Prompt, denominations[count], element);
                 }
                 if (element > 0 && denominations[count] < 20)
                 {
-                    Console.WriteLine("{0}-kronor: {1}", denominations[count], element);
+                    Console.WriteLine(Strings.Coins_Prompt, denominations[count], element);
                 }
                 count++;
             }

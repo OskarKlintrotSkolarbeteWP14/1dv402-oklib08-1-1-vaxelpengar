@@ -70,6 +70,15 @@ namespace _1._1_vaxelpengar {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0}-kronor: {1}.
+        /// </summary>
+        internal static string Coins_Prompt {
+            get {
+                return ResourceManager.GetString("Coins_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tryck valfri tangent för ny beräkning - Esc avslutar..
         /// </summary>
         internal static string Continue_Prompt {
@@ -84,6 +93,15 @@ namespace _1._1_vaxelpengar {
         internal static string Error_Message {
             get {
                 return ResourceManager.GetString("Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}-lappar: {1}.
+        /// </summary>
+        internal static string Paper_Prompt {
+            get {
+                return ResourceManager.GetString("Paper_Prompt", resourceCulture);
             }
         }
         

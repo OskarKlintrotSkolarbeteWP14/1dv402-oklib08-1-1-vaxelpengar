@@ -120,11 +120,17 @@
   <data name="Cash_Prompt" xml:space="preserve">
     <value>Ange erhållet belopp</value>
   </data>
+  <data name="Coins_Prompt" xml:space="preserve">
+    <value>{0}-kronor: {1}</value>
+  </data>
   <data name="Continue_Prompt" xml:space="preserve">
     <value>Tryck valfri tangent för ny beräkning - Esc avslutar.</value>
   </data>
   <data name="Error_Message" xml:space="preserve">
     <value>Felaktig inmatning, försök igen!</value>
+  </data>
+  <data name="Paper_Prompt" xml:space="preserve">
+    <value>{0}-lappar: {1}</value>
   </data>
   <data name="Sum_Prompt" xml:space="preserve">
     <value>Ange totalsumma</value>
