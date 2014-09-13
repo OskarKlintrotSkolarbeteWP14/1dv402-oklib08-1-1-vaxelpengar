@@ -13,14 +13,12 @@ namespace _1._1_vaxelpengar
         }
         static void Main(string[] args)
         {
-            //Variabler
-            uint[] denominations = new uint[7] { 500, 100, 50, 20, 10, 5, 1 };
-            //uint change = 777;
-
             //Consol window
             ConsoleKeyInfo escp;
             Console.Title = "Växelpengar - nivå C";
             
+            uint[] denominations = new uint[7] { 500, 100, 50, 20, 10, 5, 1 };
+
             do
             {
                 Console.Clear();
@@ -41,9 +39,7 @@ namespace _1._1_vaxelpengar
                 ViewReceipt(subtotal, roundingOffAmount, total, cash, change, notes, denominations);
 
                 //Again?
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine(Strings.Continue_Prompt);
-                Console.ResetColor();
+                ViewMessage(Strings.Continue_Prompt);
                 escp = Console.ReadKey();
             } while (escp.Key != ConsoleKey.Escape);
         }
@@ -87,15 +83,11 @@ namespace _1._1_vaxelpengar
                 }
                 catch(ToLittleException)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("För lite kontanter!");
-                    Console.ResetColor();
+                    ViewMessage("För lite kontanter!", true);
                 }
                 catch
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Felaktig inmatning, försök igen!");
-                    Console.ResetColor();
+                    ViewMessage("Felaktig inmatning, försök igen!", true);
                 }
             }
             return cash;
@@ -113,12 +105,22 @@ namespace _1._1_vaxelpengar
             }
             return SplitIntoDenominations;
         }
-        //private static void ViewMessage(string message, bool isError = false) 
-        //{
-            
-        //}
+        private static void ViewMessage(string message, bool isError = false)
+        {
+            if (isError)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+            }
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
         private static void ViewReceipt(double subtotal, double roundningOffAmount, uint total, uint cash, uint change, uint[] notes, uint[] denominations)
         {
+            //Receipt
             Console.WriteLine("KVITTO");
             Console.WriteLine("-------------------------------");
             Console.WriteLine("Totalt".PadRight(15) + ":" + "{0, 15:C}", subtotal);
@@ -128,6 +130,7 @@ namespace _1._1_vaxelpengar
             Console.WriteLine("Tillbaka".PadRight(15) + ":" + "{0, 15:C}", change);
             Console.WriteLine("-------------------------------");
             Console.WriteLine();
+
             //Change back to customer
             int count = 0;
             foreach (int element in notes)
