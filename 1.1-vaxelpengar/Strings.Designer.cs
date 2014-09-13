@@ -79,11 +79,29 @@ namespace _1._1_vaxelpengar {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Felaktig inmatning, försök igen!.
+        /// </summary>
+        internal static string Error_Message {
+            get {
+                return ResourceManager.GetString("Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ange totalsumma.
         /// </summary>
         internal static string Sum_Prompt {
             get {
                 return ResourceManager.GetString("Sum_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to För lite kontanter!.
+        /// </summary>
+        internal static string ToLittleCash_Prompt {
+            get {
+                return ResourceManager.GetString("ToLittleCash_Prompt", resourceCulture);
             }
         }
     }

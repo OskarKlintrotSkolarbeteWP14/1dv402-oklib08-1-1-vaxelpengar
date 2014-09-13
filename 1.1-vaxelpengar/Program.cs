@@ -52,16 +52,14 @@ namespace _1._1_vaxelpengar
                 {
                     Console.Write(prompt);
                     amountToBePaid = double.Parse(Console.ReadLine());
-                    if (amountToBePaid < 0.5)
+                    if (amountToBePaid < 0.5 || amountToBePaid > UInt32.MaxValue)
                         throw new OverflowException();
                     break;
                 }
                 catch
                 {
                     Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Felaktig inmatning, försök igen!");
-                    Console.ResetColor();
+                    ViewMessage(Strings.Error_Message, true);
                 }
             }
             return amountToBePaid;
@@ -83,11 +81,11 @@ namespace _1._1_vaxelpengar
                 }
                 catch(ToLittleException)
                 {
-                    ViewMessage("För lite kontanter!", true);
+                    ViewMessage(Strings.ToLittleCash_Prompt, true);
                 }
                 catch
                 {
-                    ViewMessage("Felaktig inmatning, försök igen!", true);
+                    ViewMessage(Strings.Error_Message, true);
                 }
             }
             return cash;

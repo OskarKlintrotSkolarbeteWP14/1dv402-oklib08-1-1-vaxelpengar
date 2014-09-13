@@ -123,7 +123,13 @@
   <data name="Continue_Prompt" xml:space="preserve">
     <value>Tryck valfri tangent för ny beräkning - Esc avslutar.</value>
   </data>
+  <data name="Error_Message" xml:space="preserve">
+    <value>Felaktig inmatning, försök igen!</value>
+  </data>
   <data name="Sum_Prompt" xml:space="preserve">
     <value>Ange totalsumma</value>
+  </data>
+  <data name="ToLittleCash_Prompt" xml:space="preserve">
+    <value>För lite kontanter!</value>
   </data>
 </root>
