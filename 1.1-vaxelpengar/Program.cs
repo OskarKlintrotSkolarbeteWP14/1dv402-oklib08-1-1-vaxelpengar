@@ -15,7 +15,7 @@ namespace _1._1_vaxelpengar
         {
             //Consol window
             ConsoleKeyInfo escp;
-            Console.Title = "Växelpengar - nivå C";
+            Console.Title = Strings.Console_Title;
             
             uint[] denominations = new uint[7] { 500, 100, 50, 20, 10, 5, 1 };
 

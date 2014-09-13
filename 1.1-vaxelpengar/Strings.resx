@@ -123,6 +123,9 @@
   <data name="Coins_Prompt" xml:space="preserve">
     <value>{0}-kronor: {1}</value>
   </data>
+  <data name="Console_Title" xml:space="preserve">
+    <value>Växelpengar - nivå C</value>
+  </data>
   <data name="Continue_Prompt" xml:space="preserve">
     <value>Tryck valfri tangent för ny beräkning - Esc avslutar.</value>
   </data>

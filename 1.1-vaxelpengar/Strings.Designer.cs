@@ -79,6 +79,15 @@ namespace _1._1_vaxelpengar {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Växelpengar - nivå C.
+        /// </summary>
+        internal static string Console_Title {
+            get {
+                return ResourceManager.GetString("Console_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tryck valfri tangent för ny beräkning - Esc avslutar..
         /// </summary>
         internal static string Continue_Prompt {
