@@ -24,10 +24,10 @@ namespace _1._1_vaxelpengar
                 Console.Clear();
 
                 //Sum to get paid for
-                double subtotal = ReadPositiveDouble(Strings.Sum_Prompt.PadRight(20) + ": ");
+                double subtotal = ReadPositiveDouble(String.Format("{0}{1}", Strings.Sum_Prompt.PadRight(20), Strings.Colon_Space_Prompt));
 
                 //Cash from customer
-                uint cash = ReadUint(Strings.Cash_Prompt.PadRight(20) + ": ", Convert.ToUInt32(subtotal));
+                uint cash = ReadUint(String.Format("{0}{1}", Strings.Cash_Prompt.PadRight(20), Strings.Colon_Space_Prompt), Convert.ToUInt32(subtotal));
 
                 //Rounding off the price
                 uint total = (uint)Math.Round(subtotal + 0.001);
@@ -119,14 +119,14 @@ namespace _1._1_vaxelpengar
         private static void ViewReceipt(double subtotal, double roundningOffAmount, uint total, uint cash, uint change, uint[] notes, uint[] denominations)
         {
             //Receipt
-            Console.WriteLine("KVITTO");
-            Console.WriteLine("-------------------------------");
-            Console.WriteLine("Totalt".PadRight(15) + ":" + "{0, 15:C}", subtotal);
-            Console.WriteLine("Öresutjämning".PadRight(15) + ":" + "{0, 15:C}", roundningOffAmount);
-            Console.WriteLine("Att betala".PadRight(15) + ":" + "{0, 15:C}", total);
-            Console.WriteLine("Kontant".PadRight(15) + ":" + "{0, 15:C}", cash);
-            Console.WriteLine("Tillbaka".PadRight(15) + ":" + "{0, 15:C}", change);
-            Console.WriteLine("-------------------------------");
+            Console.WriteLine(Strings.Head_Receipt);
+            Console.WriteLine(Strings.Line_Receipt);
+            Console.WriteLine("{0}{1}{2, 15:C}", Strings.Totalt_Receipt.PadRight(15), Strings.Colon_Prompt, subtotal);
+            Console.WriteLine("{0}{1}{2, 15:C}", Strings.Round_Off_Receipt.PadRight(15), Strings.Colon_Prompt, roundningOffAmount);
+            Console.WriteLine("{0}{1}{2, 15:C}", Strings.Pay_Receipt.PadRight(15), Strings.Colon_Prompt, total);
+            Console.WriteLine("{0}{1}{2, 15:C}", Strings.Cash_Receipt.PadRight(15), Strings.Colon_Prompt, cash);
+            Console.WriteLine("{0}{1}{2, 15:C}", Strings.Cashback_Receipt.PadRight(15), Strings.Colon_Prompt, change);
+            Console.WriteLine(Strings.Line_Receipt);
             Console.WriteLine();
 
             //Change back to customer

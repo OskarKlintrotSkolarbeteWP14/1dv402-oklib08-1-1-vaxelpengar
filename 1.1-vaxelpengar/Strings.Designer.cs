@@ -70,11 +70,47 @@ namespace _1._1_vaxelpengar {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kontant.
+        /// </summary>
+        internal static string Cash_Receipt {
+            get {
+                return ResourceManager.GetString("Cash_Receipt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tillbaka.
+        /// </summary>
+        internal static string Cashback_Receipt {
+            get {
+                return ResourceManager.GetString("Cashback_Receipt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}-kronor: {1}.
         /// </summary>
         internal static string Coins_Prompt {
             get {
                 return ResourceManager.GetString("Coins_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to :.
+        /// </summary>
+        internal static string Colon_Prompt {
+            get {
+                return ResourceManager.GetString("Colon_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to : .
+        /// </summary>
+        internal static string Colon_Space_Prompt {
+            get {
+                return ResourceManager.GetString("Colon_Space_Prompt", resourceCulture);
             }
         }
         
@@ -106,11 +142,47 @@ namespace _1._1_vaxelpengar {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to KVITTO.
+        /// </summary>
+        internal static string Head_Receipt {
+            get {
+                return ResourceManager.GetString("Head_Receipt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to -------------------------------.
+        /// </summary>
+        internal static string Line_Receipt {
+            get {
+                return ResourceManager.GetString("Line_Receipt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0}-lappar: {1}.
         /// </summary>
         internal static string Paper_Prompt {
             get {
                 return ResourceManager.GetString("Paper_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Att betala.
+        /// </summary>
+        internal static string Pay_Receipt {
+            get {
+                return ResourceManager.GetString("Pay_Receipt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Öresutjämning.
+        /// </summary>
+        internal static string Round_Off_Receipt {
+            get {
+                return ResourceManager.GetString("Round_Off_Receipt", resourceCulture);
             }
         }
         
@@ -129,6 +201,15 @@ namespace _1._1_vaxelpengar {
         internal static string ToLittleCash_Prompt {
             get {
                 return ResourceManager.GetString("ToLittleCash_Prompt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Totalt.
+        /// </summary>
+        internal static string Totalt_Receipt {
+            get {
+                return ResourceManager.GetString("Totalt_Receipt", resourceCulture);
             }
         }
     }
